@@ -8,8 +8,8 @@ This repository contains important files for the Behavioral Cloning Project:
 * model.py (script used to create and train the model)
 * drive.py (script to drive the car - feel free to modify this file)
 * model.h5 (a trained Keras model)
-* a report writeup file (either markdown or pdf)
-* video.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
+* writeup_report.md (a report writeup file (either markdown or pdf)
+* run.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
 
 In this project, the training dataset was collected from a Unity simulation driving game. The driving environment is only one lane on the road. There are two lane road which can be trained in further works. I used deep neural networks and convolutional neural networks to clone driving behavior. I also trained, validated and tested a model using Keras. In the testing simulation, the model can output a steering angle to an autonomous vehicle.
 
@@ -143,7 +143,7 @@ The result of training model can be tested and visualized by an autonomously dri
 python drive.py model.h5
 ```
 If the speed is set to be 10 mph, the car can keep on the lane center and drive smoothly. This simulation video is 
-shown in 'run1.mp4'. When I set the speed to be 20 mph, the car will still keep inside the lane, but sometimes will 
+shown in 'run.mp4'. When I set the speed to be 20 mph, the car will still keep inside the lane, but sometimes will 
 steer too much so that it will drive left and right when go advance. I think this issue may be due to the lack of 
 training data in high speed and with smooth steering angles. I do not have a joystick to control the car, and by the 
 keyboard it is hard to control the steering angle in high speed as well as keep it in the lane. Therefore, the data is collected 
