@@ -11,9 +11,6 @@ This repository contains important files for the Behavioral Cloning Project:
 * writeup_report.md (a report writeup file (either markdown or pdf)
 * run.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
 
-[video]: ./run.mp4 "simulation video"
-
-![alt text][video]
 
 In this project, the training dataset was collected from a Unity simulation driving game. The driving environment is only one lane on the road. There are two lane road which can be trained in further works. I used deep neural networks and convolutional neural networks to clone driving behavior. I also trained, validated and tested a model using Keras. In the testing simulation, the model can output a steering angle to an autonomous vehicle.
 
