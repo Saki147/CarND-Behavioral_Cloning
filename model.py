@@ -95,23 +95,25 @@ print(len(validation_samples))
 
 model = Sequential()
 # normalize the images
-model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160, 320, 3)))
+model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160, 320, 3), name = 'Normalization'))
 # crop the iamge
-model.add(Cropping2D(cropping=((50, 20), (0, 0)), input_shape=(160, 320, 3)))
+model.add(Cropping2D(cropping=((50, 20), (0, 0)), input_shape=(160, 320, 3), name = 'Cropping'))
 # model architecture
 # convolution
-model.add(Conv2D(24, 5, strides=(2, 2), activation="elu")) #output = 158x43x24
-model.add(Conv2D(36, 5, strides=(2, 2), activation="elu")) #output = 77x22x36
-model.add(Conv2D(48, 5, strides=(2, 2), activation="elu")) #output = 37x7x64
-model.add(Conv2D(64, 3, activation="elu")) #output = 35x7x64
-model.add(Conv2D(64, 3, activation="elu")) #output = 32x5x64
-model.add(Dropout(0.5))
-model.add(Flatten()) #output = 10240
+model.add(Conv2D(24, 5, strides=(2, 2), activation="elu", name ='Conv1')) #output = 158x43x24
+model.add(Conv2D(36, 5, strides=(2, 2), activation="elu", name = 'Conv2' )) #output = 77x22x36
+model.add(Conv2D(48, 5, strides=(2, 2), activation="elu", name = 'Conv3')) #output = 37x7x64
+model.add(Conv2D(64, 3, activation="elu", name = 'Conv4' )) #output = 35x7x64
+model.add(Conv2D(64, 3, activation="elu", name = 'Conv5')) #output = 32x5x64
+model.add(Flatten(name ='Flat1')) #output = 10240
+model.add(Dropout(0.5, name = 'Dropout1'))
 # fully connection
-model.add(Dense(100)) #output = 100
-model.add(Dense(50)) #output = 50
-model.add(Dense(10)) #output = 10
-model.add(Dense(1)) #output = 1
+model.add(Dense(100, name = 'FullyCon1')) #output = 100
+model.add(Dropout(0.5, name = 'Dropout2'))
+model.add(Dense(50, name = 'FullyCon2')) #output = 50
+model.add(Dense(10, name = 'FullyCon3')) #output = 10
+model.add(Dense(1, name = 'Output')) #output = 1
+plot_model(model,to_file='model.png') #visualize the model
 
 # generate the training and validation dataset, the generator output has the
 # twice size as the batch_size
