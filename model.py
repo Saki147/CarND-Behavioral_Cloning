@@ -114,7 +114,7 @@ def generator(samples, sample_size=21):
 
                     measurements.append(angle)
                     
-            X_valid, y_valid = sklearn.utils.shuffle(X_valid, y_valid)
+            X_valid, y_valid = sklearn.utils.shuffle(images, measurements)
             yield (np.array(X_valid), np.array(y_valid))
 
 lines = []
